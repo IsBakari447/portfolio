@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Portfolio – Issa Bakari Ndam Njounkou</title>
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #111827;
+      --card: #151f32;
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+      --primary: #00c3ff;
+      --secondary: #7c3aed;
+      --success: #22c55e;
+      --border: rgba(255, 255, 255, 0.1);
+      --shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0, 195, 255, 0.18), transparent 35%),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.2), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      background: rgba(11, 16, 32, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1180px;
+      margin: auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .language-switcher {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .language-switcher button {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .language-switcher button:hover,
+    .language-switcher button.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #00111a;
+    }
+
+    section {
+      max-width: 1180px;
+      margin: auto;
+      padding: 105px 24px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(30px, 5vw, 44px);
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      max-width: 760px;
+      margin: 0 auto 50px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .highlight {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 13px;
+      font-weight: 700;
+      transition: 0.3s;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 12px 35px rgba(0, 195, 255, 0.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-outline {
+      border-color: var(--border);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 52px;
+      padding-top: 150px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 15px;
+      border-radius: 999px;
+      color: var(--primary);
+      background: rgba(0, 195, 255, 0.08);
+      border: 1px solid rgba(0, 195, 255, 0.25);
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 660px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(21, 31, 50, 0.96), rgba(17, 24, 39, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      background: rgba(0, 195, 255, 0.13);
+      border-radius: 50%;
+      top: -55px;
+      right: -55px;
+    }
+
+    .profile-photo {
+      width: 220px;
+      height: 260px;
+      border-radius: 24px;
+      margin: 0 auto 24px;
+      overflow: hidden;
+      border: 2px solid rgba(0, 195, 255, 0.45);
+      box-shadow: 0 20px 45px rgba(0, 195, 255, 0.18);
+      position: relative;
+      z-index: 2;
+      background: #111827;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    .hero-card h3 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-card .location {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 15px 10px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 23px;
+      color: var(--primary);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .about-card,
+    .skill-card,
+    .timeline-item {
+      background: rgba(21, 31, 50, 0.86);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-card h3,
+    .skill-card h3,
+    .timeline-item h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .about-card p,
+    .skill-card p,
+    .timeline-item p {
+      color: var(--muted);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .skill-card {
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(0, 195, 255, 0.5);
+    }
+
+    .skill-icon {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: rgba(21, 31, 50, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      overflow: hidden;
+      transition: 0.3s;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.22);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 195, 255, 0.55);
+    }
+
+    .project-image {
+      height: 165px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+      background: linear-gradient(135deg, rgba(0, 195, 255, 0.22), rgba(124, 58, 237, 0.24));
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-content {
+      padding: 24px;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .project-top h3 {
+      font-size: 21px;
+      line-height: 1.25;
+    }
+
+    .priority {
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--success);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      white-space: nowrap;
+    }
+
+    .project-content p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0, 195, 255, 0.08);
+      color: var(--primary);
+      border: 1px solid rgba(0, 195, 255, 0.18);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .project-links a {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .timeline-item .date {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .contact-card {
+      background: linear-gradient(145deg, rgba(21, 31, 50, 0.96), rgba(17, 24, 39, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 46px 28px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 28px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .contact-links a {
+      padding: 12px 17px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    .contact-links a:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      padding: 28px 20px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: rgba(11, 16, 32, 0.92);
+    }
+
+    @media (max-width: 950px) {
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 210px;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      section {
+        padding: 85px 18px;
+      }
+
+      .hero {
+        padding-top: 240px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .project-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .profile-photo {
+        width: 190px;
+        height: 230px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <a href="#home" class="logo">Issa Bakari</a>
+
+      <div class="nav-links">
+        <a href="#home" data-i18n="navHome">Accueil</a>
+        <a href="#about" data-i18n="navAbout">À propos</a>
+        <a href="#skills" data-i18n="navSkills">Compétences</a>
+        <a href="#projects" data-i18n="navProjects">Projets</a>
+        <a href="#experience" data-i18n="navExperience">Expérience</a>
+        <a href="#cv" data-i18n="navCV">CV</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+      </div>
+
+      <div class="language-switcher">
+        <button id="btn-fr" class="active" onclick="setLanguage('fr')">FR</button>
+        <button id="btn-en" onclick="setLanguage('en')">EN</button>
+        <button id="btn-sv" onclick="setLanguage('sv')">SV</button>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div>
+      <span class="badge" data-i18n="heroBadge">Développeur Web & Créateur de solutions digitales</span>
+
+      <h1>
+        <span data-i18n="heroHello">Bonjour, je suis</span>
+        <br />
+        <span class="highlight">Issa Bakari Ndam Njounkou</span>
+      </h1>
+
+      <p data-i18n="heroText">
+        Je crée des sites web, dashboards, applications modernes et solutions digitales avec HTML, CSS, JavaScript, React, Next.js, TypeScript, Supabase, Python, Django, C# et .NET MAUI.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary" data-i18n="heroBtnProjects">Voir mes projets</a>
+        <a href="mailto:bakarii447@gmail.com" class="btn btn-outline" data-i18n="heroBtnContact">Me contacter</a>
+        <a href="cv-issa-bakari.pdf" class="btn btn-outline" download data-i18n="heroBtnCV">Télécharger mon CV</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="profile-photo">
+        <img src="image.jpg" alt="Photo de profil de Issa Bakari Ndam Njounkou">
+      </div>
+
+      <h3>Issa Bakari Ndam Njounkou</h3>
+      <div class="location" data-i18n="heroLocation"> Stockholm, Suède</div>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>9</strong>
+          <span data-i18n="statProjects">projets GitHub</span>
+        </div>
+
+        <div class="stat">
+          <strong>3</strong>
+          <span data-i18n="statLanguages">langues</span>
+        </div>
+
+        <div class="stat">
+          <strong>6+</strong>
+          <span data-i18n="statExperience">ans d’expérience</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title" data-i18n="aboutTitle">À propos de moi</h2>
+    <p class="section-subtitle" data-i18n="aboutSubtitle">
+      Je suis un développeur web en formation, motivé par la création de solutions simples, modernes et utiles.
+    </p>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <h3 data-i18n="aboutCardOneTitle">Mon profil</h3>
+        <p data-i18n="aboutCardOneText">
+          Je m’appelle Issa Bakari Ndam Njounkou et je réside à Stockholm, en Suède. Je suis passionné par le développement web, la création d’applications et les solutions digitales.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3 data-i18n="aboutCardTwoTitle">Mon objectif</h3>
+        <p data-i18n="aboutCardTwoText">
+          Mon objectif est de devenir développeur web/full stack et de créer des sites, dashboards, plateformes SaaS, applications de gestion et outils numériques utiles.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title" data-i18n="skillsTitle">Compétences</h2>
+    <p class="section-subtitle" data-i18n="skillsSubtitle">
+      Voici les principales technologies que j’utilise dans mes projets.
+    </p>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">🎨</div>
+        <h3>Frontend</h3>
+        <p>HTML, CSS, JavaScript, TypeScript, React, Next.js, Responsive Design.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">⚙️</div>
+        <h3>Backend</h3>
+        <p>Supabase, Python, Django, ASP.NET Core, API, authentification et bases de données.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">📱</div>
+        <h3>Applications</h3>
+        <p>C#, .NET MAUI, XAML, SQLite, applications desktop/mobile et gestion de données locales.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <h3 data-i18n="skillDashboardTitle">Dashboards & UI</h3>
+        <p data-i18n="skillDashboardText">
+          Interfaces modernes, tableaux de bord, cartes statistiques, navigation claire et expérience utilisateur.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title" data-i18n="projectsTitle">Mes projets GitHub</h2>
+    <p class="section-subtitle" data-i18n="projectsSubtitle">
+      Mes projets principaux, avec Poussin-D-Ore et landingcraft comme projets prioritaires.
+    </p>
+
+    <div class="projects-grid">
+
+      <article class="project-card">
+        <div class="project-image">🐔</div>
+        <div class="project-content">
+          <div class="project-top">
+            <h3>Poussin-D-Ore</h3>
+            <span class="priority" data-i18n="priorityProject">Projet prioritaire</span>
+          </div>
+          <p data-i18n="projectOneText">
+            Projet web autour de Poussin d’Or, une solution digitale liée à l’aviculture, aux poussins et aux produits agricoles.
+          </p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Web App</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/IsBakari447/Poussin-D-Ore" target="_blank" data-i18n="projectLinkCode">Code source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">🚀</div>
+        <div class="project-content">
+          <div class="project-top">
+            <h3>landingcraft</h3>
+            <span class="priority" data-i18n="priorityProject">Projet prioritaire</span>
+          </div>
+          <p data-i18n="projectTwoText">
+            Projet moderne de landing page / plateforme SaaS avec TypeScript, orienté design professionnel et expérience utilisateur.
+          </p>
+          <div class="tags">
+            <span class="tag">TypeScript</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">React</span>
+            <span class="tag">SaaS</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/IsBakari447/landingcraft" target="_blank" data-i18n="projectLinkCode">Code source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">🤖</div>
+        <div class="project-content">
+          <div class="project-top">
+            <h3>GenAI</h3>
+          </div>
+          <p data-i18n="projectThreeText">
+            Projet Python orienté intelligence artificielle générative.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">GenAI</span>
+            <span class="tag">AI</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/IsBakari447/GenAI" target="_blank" data-i18n="projectLinkCode">Code source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">🧠</div>
+        <div class="project-content">
+          <div class="project-top">
+            <h3>APL-GenAI</h3>
+          </div>
+          <p data-i18n="projectFourText">
+            Projet lié à l’APL et à l’intelligence artificielle générative.
+          </p>
+          <div class="tags">
+            <span class="tag">GenAI</span>
+            <span class="tag">Learning</span>
+            <span class="tag">Project</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/IsBakari447/APL-GenAI" target="_blank" data-i18n="projectLinkCode">Code source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">🛒</div>
+        <div class="project-content">
+          <div class="project-top">
+            <h3>systemInventering_Mattaffar</h3>
+          </div>
+          <p data-i18n="projectFiveText">
+            Système d’inventaire pour magasin alimentaire développé avec Python.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Inventory</span>
+            <span class="tag">Database</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/IsBakari447/systemInventering_Mattaffar" target="_blank" data-i18n="projectLinkCode">Code source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">🌐</div>
+        <div class="project-content">
+          <div class="project-top">
+            <h3>interaktiv-webbplats</h3>
+          </div>
+          <p data-i18n="projectSixText">
+            Site web interactif développé avec HTML, CSS et JavaScript.
+          </p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/IsBakari447/interaktiv-webbplats" target="_blank" data-i18n="projectLinkCode">Code source</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="section-title" data-i18n="experienceTitle">Expérience & formation</h2>
+    <p class="section-subtitle" data-i18n="experienceSubtitle">
+      Mon parcours combine expérience professionnelle, service client et formation en développement web.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3 data-i18n="experienceOneTitle">Développement web</h3>
+        <div class="date" data-i18n="experienceOneDate">Formation actuelle – Suède</div>
+        <p data-i18n="experienceOneText">
+          Apprentissage et réalisation de projets avec HTML, CSS, JavaScript, React, Next.js, TypeScript, Python, Django, C#, .NET MAUI et Supabase.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3 data-i18n="experienceTwoTitle">Butiksmedarbetare – ICA</h3>
+        <div class="date" data-i18n="experienceTwoDate">Depuis 2020 – Suède</div>
+        <p data-i18n="experienceTwoText">
+          Expérience polyvalente dans le service client, la vente, la caisse, l’organisation, la préparation des commandes et la communication avec les clients.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <h2 class="section-title" data-i18n="cvTitle">Mon CV</h2>
+    <p class="section-subtitle" data-i18n="cvSubtitle">
+      Voici un résumé de mon profil, mes compétences, mon expérience professionnelle et ma formation.
+    </p>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <h3 data-i18n="cvProfileTitle">Profil personnel</h3>
+        <p data-i18n="cvProfileText">
+          Travailleur motivé et sérieux avec une expérience variée dans le commerce, le nettoyage, la boulangerie, la vente et le développement web.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3 data-i18n="cvContactTitle">Informations</h3>
+        <p>
+          <strong>Nom :</strong> Issa Bakari Ndam Njounkou<br>
+          <strong>Adresse :</strong> Stockholm, Suède<br>
+          <strong>Téléphone :</strong> 0707364555<br>
+          <strong>Email :</strong>
+          <a href="mailto:bakarii447@gmail.com" style="color: var(--primary);">
+            bakarii447@gmail.com
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="skills-grid" style="margin-top: 24px;">
+      <div class="skill-card">
+        <div class="skill-icon">💻</div>
+        <h3 data-i18n="cvSkillsTitle">Compétences IT</h3>
+        <p data-i18n="cvSkillsText">
+          Programmation de base, développement web, IT et réseau, support technique, bases de données et création d’interfaces digitales.
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🛒</div>
+        <h3 data-i18n="cvRetailTitle">Compétences commerce</h3>
+        <p data-i18n="cvRetailText">
+          Service client, caisse, gestion du stock, réassort, techniques de vente, promotions et gestion des clients difficiles.
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🌍</div>
+        <h3 data-i18n="cvLanguagesTitle">Langues</h3>
+        <p data-i18n="cvLanguagesText">
+          Français, suédois et anglais.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline" style="margin-top: 30px;">
+      <div class="timeline-item">
+        <h3 data-i18n="cvExpOneTitle">Store Assistant – ICA Nära Enebytorg</h3>
+        <div class="date" data-i18n="cvExpOneDate">Janvier 2020 – Aujourd’hui | Suède</div>
+        <p data-i18n="cvExpOneText">
+          Service client, assistance aux clients, réassort des rayons, caisse, transactions et contrôle du stock.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3 data-i18n="cvExpTwoTitle">Cleaner – ISKO AB</h3>
+        <div class="date" data-i18n="cvExpTwoDate">Décembre 2019 – Juin 2020 | Suède</div>
+        <p data-i18n="cvExpTwoText">
+          Nettoyage professionnel de bureaux et espaces commerciaux.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3 data-i18n="cvExpThreeTitle">Baker – Boulangerie locale</h3>
+        <div class="date" data-i18n="cvExpThreeDate">Janvier 2018 | Mauritanie</div>
+        <p data-i18n="cvExpThreeText">
+          Préparation du pain et de pâtisseries.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3 data-i18n="cvExpFourTitle">Sales Assistant – Mauritel</h3>
+        <div class="date" data-i18n="cvExpFourDate">Janvier 2017 | Mauritanie</div>
+        <p data-i18n="cvExpFourText">
+          Vente d’abonnements mobiles et de produits technologiques.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline" style="margin-top: 30px;">
+      <div class="timeline-item">
+        <h3 data-i18n="cvEduOneTitle">Formation IT – Jensen Komvux</h3>
+        <div class="date" data-i18n="cvEduOneDate">Suède | Terminé en janvier 2026</div>
+        <p data-i18n="cvEduOneText">
+          Computer and Communication Technology, Programming 1 & 2, Web Development 1 & 2, Web Server Programming, Support and Service Work.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3 data-i18n="cvEduTwoTitle">Agricultural College</h3>
+        <div class="date" data-i18n="cvEduTwoDate">Terminé en janvier 2015</div>
+        <p data-i18n="cvEduTwoText">
+          Formation en agriculture et technologie agricole.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3 data-i18n="cvEduThreeTitle">Université du Cameroun – Littérature française</h3>
+        <div class="date" data-i18n="cvEduThreeDate">Terminé en janvier 2012</div>
+        <p data-i18n="cvEduThreeText">
+          Études universitaires en littérature française.
+        </p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 35px;">
+      <a href="cv-issa-bakari.pdf" class="btn btn-primary" target="_blank" data-i18n="cvViewBtn">
+        Voir mon CV PDF
+      </a>
+
+      <a href="cv-issa-bakari.pdf" class="btn btn-outline" download data-i18n="cvDownloadBtn">
+        Télécharger mon CV
+      </a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-card">
+      <h2 class="section-title" data-i18n="contactTitle">Contact</h2>
+
+      <p data-i18n="contactText">
+        Tu peux me contacter pour un projet web, une application, un dashboard, une plateforme SaaS ou une collaboration professionnelle.
+      </p>
+
+      <a href="mailto:bakarii447@gmail.com" class="btn btn-primary" data-i18n="contactButton">
+        Envoyer un email
+      </a>
+
+      <div class="contact-links">
+        <a href="mailto:bakarii447@gmail.com">📧 bakarii447@gmail.com</a>
+        <a href="https://github.com/IsBakari447" target="_blank">💻 GitHub</a>
+        <a href="https://github.com/IsBakari447?tab=repositories" target="_blank">📁 Repositories</a>
+        <a href="https://www.linkedin.com/in/issa-issa-bakari-06712319a" target="_blank">🔗 LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footerText">© 2026 Issa Bakari Ndam Njounkou. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      fr: {
+        navHome: "Accueil",
+        navAbout: "À propos",
+        navSkills: "Compétences",
+        navProjects: "Projets",
+        navExperience: "Expérience",
+        navCV: "CV",
+        navContact: "Contact",
+
+        heroBadge: "Développeur Web & Créateur de solutions digitales",
+        heroHello: "Bonjour, je suis",
+        heroText: "Je crée des sites web, dashboards, applications modernes et solutions digitales avec HTML, CSS, JavaScript, React, Next.js, TypeScript, Supabase, Python, Django, C# et .NET MAUI.",
+        heroBtnProjects: "Voir mes projets",
+        heroBtnContact: "Me contacter",
+        heroBtnCV: "Télécharger mon CV",
+        heroLocation: " Stockholm, Suède",
+
+        statProjects: "projets GitHub",
+        statLanguages: "langues",
+        statExperience: "ans d’expérience",
+
+        aboutTitle: "À propos de moi",
+        aboutSubtitle: "Je suis un développeur web en formation, motivé par la création de solutions simples, modernes et utiles.",
+        aboutCardOneTitle: "Mon profil",
+        aboutCardOneText: "Je m’appelle Issa Bakari Ndam Njounkou et je réside à Stockholm, en Suède. Je suis passionné par le développement web, la création d’applications et les solutions digitales.",
+        aboutCardTwoTitle: "Mon objectif",
+        aboutCardTwoText: "Mon objectif est de devenir développeur web/full stack et de créer des sites, dashboards, plateformes SaaS, applications de gestion et outils numériques utiles.",
+
+        skillsTitle: "Compétences",
+        skillsSubtitle: "Voici les principales technologies que j’utilise dans mes projets.",
+        skillDashboardTitle: "Dashboards & UI",
+        skillDashboardText: "Interfaces modernes, tableaux de bord, cartes statistiques, navigation claire et expérience utilisateur.",
+
+        projectsTitle: "Mes projets GitHub",
+        projectsSubtitle: "Mes projets principaux, avec Poussin-D-Ore et landingcraft comme projets prioritaires.",
+        priorityProject: "Projet prioritaire",
+        projectOneText: "Projet web autour de Poussin d’Or, une solution digitale liée à l’aviculture, aux poussins et aux produits agricoles.",
+        projectTwoText: "Projet moderne de landing page / plateforme SaaS avec TypeScript, orienté design professionnel et expérience utilisateur.",
+        projectThreeText: "Projet Python orienté intelligence artificielle générative.",
+        projectFourText: "Projet lié à l’APL et à l’intelligence artificielle générative.",
+        projectFiveText: "Système d’inventaire pour magasin alimentaire développé avec Python.",
+        projectSixText: "Site web interactif développé avec HTML, CSS et JavaScript.",
+        projectLinkCode: "Code source",
+
+        experienceTitle: "Expérience & formation",
+        experienceSubtitle: "Mon parcours combine expérience professionnelle, service client et formation en développement web.",
+        experienceOneTitle: "Développement web",
+        experienceOneDate: "Formation actuelle – Suède",
+        experienceOneText: "Apprentissage et réalisation de projets avec HTML, CSS, JavaScript, React, Next.js, TypeScript, Python, Django, C#, .NET MAUI et Supabase.",
+        experienceTwoTitle: "Butiksmedarbetare – ICA",
+        experienceTwoDate: "Depuis 2020 – Suède",
+        experienceTwoText: "Expérience polyvalente dans le service client, la vente, la caisse, l’organisation, la préparation des commandes et la communication avec les clients.",
+
+        cvTitle: "Mon CV",
+        cvSubtitle: "Voici un résumé de mon profil, mes compétences, mon expérience professionnelle et ma formation.",
+        cvProfileTitle: "Profil personnel",
+        cvProfileText: "Travailleur motivé et sérieux avec une expérience variée dans le commerce, le nettoyage, la boulangerie, la vente et le développement web.",
+        cvContactTitle: "Informations",
+        cvSkillsTitle: "Compétences IT",
+        cvSkillsText: "Programmation de base, développement web, IT et réseau, support technique, bases de données et création d’interfaces digitales.",
+        cvRetailTitle: "Compétences commerce",
+        cvRetailText: "Service client, caisse, gestion du stock, réassort, techniques de vente, promotions et gestion des clients difficiles.",
+        cvLanguagesTitle: "Langues",
+        cvLanguagesText: "Français, suédois et anglais.",
+
+        cvExpOneTitle: "Store Assistant – ICA Nära Enebytorg",
+        cvExpOneDate: "Janvier 2020 – Aujourd’hui | Suède",
+        cvExpOneText: "Service client, assistance aux clients, réassort des rayons, caisse, transactions et contrôle du stock.",
+        cvExpTwoTitle: "Cleaner – ISKO AB",
+        cvExpTwoDate: "Décembre 2019 – Juin 2020 | Suède",
+        cvExpTwoText: "Nettoyage professionnel de bureaux et espaces commerciaux.",
+        cvExpThreeTitle: "Baker – Boulangerie locale",
+        cvExpThreeDate: "Janvier 2018 | Mauritanie",
+        cvExpThreeText: "Préparation du pain et de pâtisseries.",
+        cvExpFourTitle: "Sales Assistant – Mauritel",
+        cvExpFourDate: "Janvier 2017 | Mauritanie",
+        cvExpFourText: "Vente d’abonnements mobiles et de produits technologiques.",
+
+        cvEduOneTitle: "Formation IT – Jensen Komvux",
+        cvEduOneDate: "Suède | Terminé en janvier 2026",
+        cvEduOneText: "Computer and Communication Technology, Programming 1 & 2, Web Development 1 & 2, Web Server Programming, Support and Service Work.",
+        cvEduTwoTitle: "Agricultural College",
+        cvEduTwoDate: "Terminé en janvier 2015",
+        cvEduTwoText: "Formation en agriculture et technologie agricole.",
+        cvEduThreeTitle: "Université du Cameroun – Littérature française",
+        cvEduThreeDate: "Terminé en janvier 2012",
+        cvEduThreeText: "Études universitaires en littérature française.",
+        cvViewBtn: "Voir mon CV PDF",
+        cvDownloadBtn: "Télécharger mon CV",
+
+        contactTitle: "Contact",
+        contactText: "Tu peux me contacter pour un projet web, une application, un dashboard, une plateforme SaaS ou une collaboration professionnelle.",
+        contactButton: "Envoyer un email",
+        footerText: "© 2026 Issa Bakari Ndam Njounkou. Tous droits réservés."
+      },
+
+      en: {
+        navHome: "Home",
+        navAbout: "About",
+        navSkills: "Skills",
+        navProjects: "Projects",
+        navExperience: "Experience",
+        navCV: "Resume",
+        navContact: "Contact",
+
+        heroBadge: "Web Developer & Digital Solutions Creator",
+        heroHello: "Hello, I am",
+        heroText: "I build websites, dashboards, modern applications and digital solutions with HTML, CSS, JavaScript, React, Next.js, TypeScript, Supabase, Python, Django, C# and .NET MAUI.",
+        heroBtnProjects: "View my projects",
+        heroBtnContact: "Contact me",
+        heroBtnCV: "Download my CV",
+        heroLocation: " Stockholm, Sweden",
+
+        statProjects: "GitHub projects",
+        statLanguages: "languages",
+        statExperience: "years experience",
+
+        aboutTitle: "About me",
+        aboutSubtitle: "I am a web developer in training, motivated by creating simple, modern and useful solutions.",
+        aboutCardOneTitle: "My profile",
+        aboutCardOneText: "My name is Issa Bakari Ndam Njounkou and I live in Stockholm, Sweden. I am passionate about web development, application creation and digital solutions.",
+        aboutCardTwoTitle: "My goal",
+        aboutCardTwoText: "My goal is to become a web/full stack developer and create websites, dashboards, SaaS platforms, management applications and useful digital tools.",
+
+        skillsTitle: "Skills",
+        skillsSubtitle: "Here are the main technologies I use in my projects.",
+        skillDashboardTitle: "Dashboards & UI",
+        skillDashboardText: "Modern interfaces, dashboards, statistic cards, clear navigation and user experience.",
+
+        projectsTitle: "My GitHub projects",
+        projectsSubtitle: "My main projects, with Poussin-D-Ore and landingcraft as priority projects.",
+        priorityProject: "Priority project",
+        projectOneText: "Web project around Poussin d’Or, a digital solution related to poultry farming, chicks and agricultural products.",
+        projectTwoText: "Modern landing page / SaaS platform project with TypeScript, focused on professional design and user experience.",
+        projectThreeText: "Python project focused on generative artificial intelligence.",
+        projectFourText: "Project related to APL and generative artificial intelligence.",
+        projectFiveText: "Inventory system for a food store developed with Python.",
+        projectSixText: "Interactive website developed with HTML, CSS and JavaScript.",
+        projectLinkCode: "Source code",
+
+        experienceTitle: "Experience & education",
+        experienceSubtitle: "My background combines professional experience, customer service and web development training.",
+        experienceOneTitle: "Web development",
+        experienceOneDate: "Current training – Sweden",
+        experienceOneText: "Learning and building projects with HTML, CSS, JavaScript, React, Next.js, TypeScript, Python, Django, C#, .NET MAUI and Supabase.",
+        experienceTwoTitle: "Store employee – ICA",
+        experienceTwoDate: "Since 2020 – Sweden",
+        experienceTwoText: "Versatile experience in customer service, sales, cashier work, organization, order preparation and customer communication.",
+
+        cvTitle: "My Resume",
+        cvSubtitle: "Here is a summary of my profile, skills, professional experience and education.",
+        cvProfileTitle: "Personal profile",
+        cvProfileText: "Motivated and dedicated worker with experience in retail, cleaning, bakery, sales and web development.",
+        cvContactTitle: "Information",
+        cvSkillsTitle: "IT skills",
+        cvSkillsText: "Basic programming, web development, IT and networking, technical support, databases and digital interfaces.",
+        cvRetailTitle: "Retail skills",
+        cvRetailText: "Customer service, checkout, stock management, restocking, sales techniques, promotions and handling difficult customers.",
+        cvLanguagesTitle: "Languages",
+        cvLanguagesText: "French, Swedish and English.",
+
+        cvExpOneTitle: "Store Assistant – ICA Nära Enebytorg",
+        cvExpOneDate: "January 2020 – Present | Sweden",
+        cvExpOneText: "Customer service, assisting shoppers, restocking shelves, checkout operations and stock control.",
+        cvExpTwoTitle: "Cleaner – ISKO AB",
+        cvExpTwoDate: "December 2019 – June 2020 | Sweden",
+        cvExpTwoText: "Professional cleaning of offices and commercial spaces.",
+        cvExpThreeTitle: "Baker – Local Bakery",
+        cvExpThreeDate: "January 2018 | Mauritania",
+        cvExpThreeText: "Prepared bread and pastries.",
+        cvExpFourTitle: "Sales Assistant – Mauritel",
+        cvExpFourDate: "January 2017 | Mauritania",
+        cvExpFourText: "Sold mobile subscriptions and technological products.",
+
+        cvEduOneTitle: "IT Education – Jensen Komvux",
+        cvEduOneDate: "Sweden | Completed January 2026",
+        cvEduOneText: "Computer and Communication Technology, Programming 1 & 2, Web Development 1 & 2, Web Server Programming, Support and Service Work.",
+        cvEduTwoTitle: "Agricultural College",
+        cvEduTwoDate: "Completed January 2015",
+        cvEduTwoText: "Agriculture and farming technology.",
+        cvEduThreeTitle: "University of Cameroon – French Literature",
+        cvEduThreeDate: "Completed January 2012",
+        cvEduThreeText: "University studies in French literature.",
+        cvViewBtn: "View resume PDF",
+        cvDownloadBtn: "Download resume",
+
+        contactTitle: "Contact",
+        contactText: "You can contact me for a web project, an application, a dashboard, a SaaS platform or a professional collaboration.",
+        contactButton: "Send email",
+        footerText: "© 2026 Issa Bakari Ndam Njounkou. All rights reserved."
+      },
+
+      sv: {
+        navHome: "Hem",
+        navAbout: "Om mig",
+        navSkills: "Kompetenser",
+        navProjects: "Projekt",
+        navExperience: "Erfarenhet",
+        navCV: "CV",
+        navContact: "Kontakt",
+
+        heroBadge: "Webbutvecklare & skapare av digitala lösningar",
+        heroHello: "Hej, jag är",
+        heroText: "Jag skapar webbplatser, dashboards, moderna applikationer och digitala lösningar med HTML, CSS, JavaScript, React, Next.js, TypeScript, Supabase, Python, Django, C# och .NET MAUI.",
+        heroBtnProjects: "Se mina projekt",
+        heroBtnContact: "Kontakta mig",
+        heroBtnCV: "Ladda ner mitt CV",
+        heroLocation: " Stockholm, Sverige",
+
+        statProjects: "GitHub-projekt",
+        statLanguages: "språk",
+        statExperience: "års erfarenhet",
+
+        aboutTitle: "Om mig",
+        aboutSubtitle: "Jag är webbutvecklare under utbildning och motiveras av att skapa enkla, moderna och användbara lösningar.",
+        aboutCardOneTitle: "Min profil",
+        aboutCardOneText: "Jag heter Issa Bakari Ndam Njounkou och bor i Stockholm, Sverige. Jag är passionerad av webbutveckling, apputveckling och digitala lösningar.",
+        aboutCardTwoTitle: "Mitt mål",
+        aboutCardTwoText: "Mitt mål är att bli webbutvecklare/full stack-utvecklare och skapa webbplatser, dashboards, SaaS-plattformar, hanteringsappar och användbara digitala verktyg.",
+
+        skillsTitle: "Kompetenser",
+        skillsSubtitle: "Här är de viktigaste teknikerna jag använder i mina projekt.",
+        skillDashboardTitle: "Dashboards & UI",
+        skillDashboardText: "Moderna gränssnitt, dashboards, statistikkort, tydlig navigation och användarupplevelse.",
+
+        projectsTitle: "Mina GitHub-projekt",
+        projectsSubtitle: "Mina huvudprojekt, med Poussin-D-Ore och landingcraft som prioriterade projekt.",
+        priorityProject: "Prioriterat projekt",
+        projectOneText: "Webbprojekt kring Poussin d’Or, en digital lösning kopplad till fjäderfäuppfödning, kycklingar och jordbruksprodukter.",
+        projectTwoText: "Modernt landing page / SaaS-projekt med TypeScript, fokuserat på professionell design och användarupplevelse.",
+        projectThreeText: "Python-projekt med fokus på generativ artificiell intelligens.",
+        projectFourText: "Projekt kopplat till APL och generativ artificiell intelligens.",
+        projectFiveText: "Inventeringssystem för en matbutik utvecklat med Python.",
+        projectSixText: "Interaktiv webbplats utvecklad med HTML, CSS och JavaScript.",
+        projectLinkCode: "Källkod",
+
+        experienceTitle: "Erfarenhet & utbildning",
+        experienceSubtitle: "Min bakgrund kombinerar yrkeserfarenhet, kundservice och utbildning inom webbutveckling.",
+        experienceOneTitle: "Webbutveckling",
+        experienceOneDate: "Pågående utbildning – Sverige",
+        experienceOneText: "Lärande och projekt med HTML, CSS, JavaScript, React, Next.js, TypeScript, Python, Django, C#, .NET MAUI och Supabase.",
+        experienceTwoTitle: "Butiksmedarbetare – ICA",
+        experienceTwoDate: "Sedan 2020 – Sverige",
+        experienceTwoText: "Bred erfarenhet inom kundservice, försäljning, kassa, organisation, orderplock och kundkommunikation.",
+
+        cvTitle: "Mitt CV",
+        cvSubtitle: "Här är en sammanfattning av min profil, mina kompetenser, min yrkeserfarenhet och min utbildning.",
+        cvProfileTitle: "Personlig profil",
+        cvProfileText: "Motiverad och seriös arbetare med erfarenhet inom butik, städning, bageri, försäljning och webbutveckling.",
+        cvContactTitle: "Information",
+        cvSkillsTitle: "IT-kompetenser",
+        cvSkillsText: "Grundläggande programmering, webbutveckling, IT och nätverk, teknisk support, databaser och digitala gränssnitt.",
+        cvRetailTitle: "Butikskompetenser",
+        cvRetailText: "Kundservice, kassa, lagerhantering, varupåfyllning, säljteknik, kampanjer och hantering av svåra kunder.",
+        cvLanguagesTitle: "Språk",
+        cvLanguagesText: "Franska, svenska och engelska.",
+
+        cvExpOneTitle: "Butiksmedarbetare – ICA Nära Enebytorg",
+        cvExpOneDate: "Januari 2020 – Nu | Sverige",
+        cvExpOneText: "Kundservice, hjälp till kunder, varupåfyllning, kassa och lagerkontroll.",
+        cvExpTwoTitle: "Städare – ISKO AB",
+        cvExpTwoDate: "December 2019 – Juni 2020 | Sverige",
+        cvExpTwoText: "Professionell städning av kontor och kommersiella lokaler.",
+        cvExpThreeTitle: "Bagare – Lokalt bageri",
+        cvExpThreeDate: "Januari 2018 | Mauretanien",
+        cvExpThreeText: "Förberedelse av bröd och bakverk.",
+        cvExpFourTitle: "Säljare – Mauritel",
+        cvExpFourDate: "Januari 2017 | Mauretanien",
+        cvExpFourText: "Försäljning av mobilabonnemang och tekniska produkter.",
+
+        cvEduOneTitle: "IT-utbildning – Jensen Komvux",
+        cvEduOneDate: "Sverige | Avslutad januari 2026",
+        cvEduOneText: "Dator- och kommunikationsteknik, Programmering 1 & 2, Webbutveckling 1 & 2, Webbserverprogrammering, Support och servicearbete.",
+        cvEduTwoTitle: "Lantbruksskola",
+        cvEduTwoDate: "Avslutad januari 2015",
+        cvEduTwoText: "Utbildning inom jordbruk och lantbruksteknik.",
+        cvEduThreeTitle: "Universitetet i Kamerun – Fransk litteratur",
+        cvEduThreeDate: "Avslutad januari 2012",
+        cvEduThreeText: "Universitetsstudier i fransk litteratur.",
+        cvViewBtn: "Visa CV PDF",
+        cvDownloadBtn: "Ladda ner CV",
+
+        contactTitle: "Kontakt",
+        contactText: "Du kan kontakta mig för ett webbprojekt, en applikation, en dashboard, en SaaS-plattform eller ett professionellt samarbete.",
+        contactButton: "Skicka e-post",
+        footerText: "© 2026 Issa Bakari Ndam Njounkou. Alla rättigheter förbehållna."
+      }
+    };
+
+    function setLanguage(language) {
+      const elements = document.querySelectorAll("[data-i18n]");
+
+      elements.forEach((element) => {
+        const key = element.getAttribute("data-i18n");
+
+        if (translations[language] && translations[language][key]) {
+          element.textContent = translations[language][key];
+        }
+      });
+
+      document.documentElement.lang = language;
+
+      document.querySelectorAll(".language-switcher button").forEach((button) => {
+        button.classList.remove("active");
+      });
+
+      const activeButton = document.getElementById("btn-" + language);
+
+      if (activeButton) {
+        activeButton.classList.add("active");
+      }
+
+      localStorage.setItem("portfolioLanguage", language);
+    }
+
+    const savedLanguage = localStorage.getItem("portfolioLanguage") || "fr";
+    setLanguage(savedLanguage);
+  </script>
+
+</body>
+</html>

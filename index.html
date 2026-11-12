@@ -702,6 +702,18 @@
 .project-top h3 { min-width: 0; overflow-wrap: anywhere; }
 .resume-preview { padding: 0; overflow: hidden; background: #fff; }
 .resume-preview img { display: block; width: 100%; height: auto; }
+
+/* Real screenshots, stored with the portfolio and linked at full size. */
+.project-preview { margin: 0; min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); }
+.screenshot-link { display: block; height: 100%; }
+.screenshot-link img { display: block; width: 100%; height: auto; aspect-ratio: 1265 / 712; object-fit: contain; object-position: top; background: #f5f7fb; }
+.screenshot-link figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; padding: 10px 12px; font-size: 11px; line-height: 1.5; color: var(--muted); border-top: 1px solid var(--line); }
+.screenshot-open { color: var(--primary); white-space: nowrap; }
+.screenshot-link:hover .screenshot-open { text-decoration: underline; }
+.screenshot-link:focus-visible { outline: 3px solid var(--primary); outline-offset: -3px; }
+.featured-project { align-items: stretch; }
+.featured-project > .project-preview { align-self: center; }
+.project-grid .project-card > .btn { margin-top: auto; }
 </style>
 </head>
 
@@ -810,7 +822,7 @@
       </div>
 
       <div class="featured-project">
-        <div class="project-mark" aria-hidden="true">ERP</div>
+        <figure class="project-preview"><a class="screenshot-link" href="assets/screenshots/enterpriseerp.png" target="_blank" rel="noopener noreferrer"><img src="assets/screenshots/enterpriseerp.png" alt="Capture d’écran du projet EnterpriseERP · Full stack" width="1265" height="712" loading="lazy" decoding="async"><figcaption><span data-i18n="screenshotDemo">Démonstration · données fictives</span><span class="screenshot-open" data-i18n="screenshotOpen">Agrandir ↗</span></figcaption></a></figure>
         <article class="project-card featured">
           <div class="project-top">
             <h3>EnterpriseERP · Full stack</h3>
@@ -825,6 +837,7 @@
 
       <div class="project-grid">
         <article class="project-card">
+          <figure class="project-preview"><a class="screenshot-link" href="assets/screenshots/poussin-d-or.png" target="_blank" rel="noopener noreferrer"><img src="assets/screenshots/poussin-d-or.png" alt="Capture d’écran du projet Poussin-D-Ore" width="1265" height="712" loading="lazy" decoding="async"><figcaption><span data-i18n="screenshotInterface">Interface réelle · aperçu local</span><span class="screenshot-open" data-i18n="screenshotOpen">Agrandir ↗</span></figcaption></a></figure>
           <div class="project-top">
             <h3>Poussin-D-Ore</h3>
             <span class="badge">JavaScript</span>
@@ -835,6 +848,7 @@
         </article>
 
         <article class="project-card">
+          <figure class="project-preview"><a class="screenshot-link" href="assets/screenshots/landingcraft.png" target="_blank" rel="noopener noreferrer"><img src="assets/screenshots/landingcraft.png" alt="Capture d’écran du projet landingcraft" width="1265" height="712" loading="lazy" decoding="async"><figcaption><span data-i18n="screenshotInterface">Interface réelle · aperçu local</span><span class="screenshot-open" data-i18n="screenshotOpen">Agrandir ↗</span></figcaption></a></figure>
           <div class="project-top">
             <h3>landingcraft</h3>
             <span class="badge">TypeScript</span>
@@ -845,6 +859,7 @@
         </article>
 
         <article class="project-card">
+          <figure class="project-preview"><a class="screenshot-link" href="assets/screenshots/inventaire-source.png" target="_blank" rel="noopener noreferrer"><img src="assets/screenshots/inventaire-source.png" alt="Code Python Tkinter du projet systemInventering_Mattaffar sur GitHub" width="1265" height="712" loading="lazy" decoding="async"><figcaption><span data-i18n="screenshotSource">Code source · interface à ajouter</span><span class="screenshot-open" data-i18n="screenshotOpen">Agrandir ↗</span></figcaption></a></figure>
           <div class="project-top">
             <h3>systemInventering_Mattaffar</h3>
             <span class="badge">Python</span>
@@ -855,6 +870,7 @@
         </article>
 
         <article class="project-card">
+          <figure class="project-preview"><a class="screenshot-link" href="assets/screenshots/genai.png" target="_blank" rel="noopener noreferrer"><img src="assets/screenshots/genai.png" alt="Capture d’écran du projet GenAI" width="1265" height="712" loading="lazy" decoding="async"><figcaption><span data-i18n="screenshotInterface">Interface réelle · aperçu local</span><span class="screenshot-open" data-i18n="screenshotOpen">Agrandir ↗</span></figcaption></a></figure>
           <div class="project-top">
             <h3>GenAI</h3>
             <span class="badge">Python</span>
@@ -865,6 +881,7 @@
         </article>
 
         <article class="project-card">
+          <figure class="project-preview"><a class="screenshot-link" href="assets/screenshots/interaktiv-webbplats.png" target="_blank" rel="noopener noreferrer"><img src="assets/screenshots/interaktiv-webbplats.png" alt="Capture d’écran du projet interaktiv-webbplats" width="1265" height="712" loading="lazy" decoding="async"><figcaption><span data-i18n="screenshotInterface">Interface réelle · aperçu local</span><span class="screenshot-open" data-i18n="screenshotOpen">Agrandir ↗</span></figcaption></a></figure>
           <div class="project-top">
             <h3>interaktiv-webbplats</h3>
             <span class="badge">HTML</span>
@@ -875,6 +892,7 @@
         </article>
 
         <article class="project-card">
+          <figure class="project-preview"><a class="screenshot-link" href="assets/screenshots/portfolio.png" target="_blank" rel="noopener noreferrer"><img src="assets/screenshots/portfolio.png" alt="Capture d’écran du projet portfolio" width="1265" height="712" loading="lazy" decoding="async"><figcaption><span data-i18n="screenshotPortfolio">Portfolio · page d’accueil</span><span class="screenshot-open" data-i18n="screenshotOpen">Agrandir ↗</span></figcaption></a></figure>
           <div class="project-top">
             <h3>portfolio</h3>
             <span class="badge">HTML</span>
@@ -1276,6 +1294,9 @@ const translations = {
     "resumeProject": "EnterpriseERP · Next.js / NestJS / PostgreSQL"
   }
 };
+Object.assign(translations.fr, {"screenshotDemo":"Démonstration · données fictives","screenshotInterface":"Interface réelle · aperçu local","screenshotSource":"Code source · interface à ajouter","screenshotPortfolio":"Portfolio · page d’accueil","screenshotOpen":"Agrandir ↗"});
+Object.assign(translations.en, {"screenshotDemo":"Demo · sample data","screenshotInterface":"Actual interface · local preview","screenshotSource":"Source code · app screenshot pending","screenshotPortfolio":"Portfolio · homepage","screenshotOpen":"Enlarge ↗"});
+Object.assign(translations.sv, {"screenshotDemo":"Demo · exempeldata","screenshotInterface":"Verkligt gränssnitt · lokal förhandsvisning","screenshotSource":"Källkod · bild av appen saknas","screenshotPortfolio":"Portfolio · startsida","screenshotOpen":"Förstora ↗"});
 function setLanguage(language) {
   language = Object.hasOwn(translations, language) ? language : 'fr';
   const dictionary = translations[language];

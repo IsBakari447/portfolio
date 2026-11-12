@@ -1,0 +1,9 @@
+Captures réalisées le 12 novembre 2026 depuis les projets originaux.
+
+EnterpriseERP : démo locale /demo/live, avec les données fictives du projet.
+Poussin d’or : tableau de bord local, sans données personnelles.
+LandingCraft : page d’accueil locale.
+GenAI : formulaire Django local, sans appel à une API IA.
+Interaktiv webbplats : page d’accueil locale.
+Portfolio : page publique existante avant cette modification.
+Inventaire : capture du code main.py sur GitHub. Le lancement Tkinter était indisponible dans cet environnement ; remplacer cette capture par une image de l’application dès qu’elle est disponible.

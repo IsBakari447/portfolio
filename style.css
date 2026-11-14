@@ -638,9 +638,49 @@
     footer {
       border-top: 1px solid var(--line);
       color: var(--soft);
-      text-align: center;
-      padding: 24px 20px;
+      padding: 32px 20px 20px;
       background: #0b1220;
+    }
+
+    .footer-contact {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .footer-contact > div,
+    .footer-contact address {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-style: normal;
+      min-width: 0;
+    }
+
+    .footer-contact strong {
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .footer-contact a,
+    .footer-contact address span {
+      overflow-wrap: anywhere;
+      font-size: 14px;
+    }
+
+    .footer-contact a:hover {
+      color: var(--primary);
+    }
+
+    .footer-copy {
+      max-width: 1160px;
+      margin: 24px auto 0;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 13px;
     }
 
     @media (max-width: 940px) {
@@ -662,7 +702,8 @@
 
       .skills,
       .project-grid,
-      .documents {
+      .documents,
+      .footer-contact {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -691,6 +732,7 @@
       .skills,
       .project-grid,
       .documents,
+      .footer-contact,
       .resume-highlights,
       .stats {
         grid-template-columns: 1fr;

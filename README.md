@@ -20,13 +20,16 @@ Open http://localhost:8080. No build step is required.
 
 ## Files and maintenance
 
-- `index.html`: layout, content and FR / EN / SV translations. Keep default HTML and all translations aligned.
+- `index.html`: page structure and content. Keep default HTML and all translations aligned.
+- `style.css`: page styles.
+- `script.js`: FR / EN / SV translations and language switching.
+- `screenshots/`: project screenshots linked from the projects section.
+- `diplomes/`: supporting diplomas and certificates.
 - `profile-photo.png`: the supplied portrait, used unchanged.
 - `issa-bakari-cv-{fr,en,sv}.pdf`: one-page CVs with the same teal sidebar design and portrait.
 - `cv-issa-bakari.pdf`: compatibility alias for the French CV.
 - `generate-cv-pdfs.py`: reproducible PDF generator; requires `reportlab`, `pypdf` and `pypdfium2`. On Windows it uses the installed Arial fonts.
-- `applied-tech-diploma.pdf` and `nation-ai-productivity-level-2.png`: existing supporting documents.
 
-After changing facts, update all language dictionaries in the page and the generator, regenerate the PDFs and review the rendered PNGs in `tmp/pdfs/` before publishing. The main CV buttons follow the selected language. Local storage is optional.
+After changing facts, update all language dictionaries in `script.js` and the generator, regenerate the PDFs and review the rendered PNGs in `tmp/pdfs/` before publishing. The main CV buttons follow the selected language. Local storage is optional.
 
 GitHub Pages deploys from `main` at the repository root. Original design retained; profile information aligned with the updated CV in October 2026.
